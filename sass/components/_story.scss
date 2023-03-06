@@ -1,0 +1,59 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 30px 60px rgba($color-black, 10%);
+  background-color: rgba($color-white, 0.5);
+  border-radius: 10px;
+  padding: 60px;
+  padding-left: 90px;
+  font-size: 18px;
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 150px;
+    height: 150px;
+    float: left;
+    //ovo postavlja da tekst kruzi oko kruga, mora da ima postavljenu sirinu i visinu i mora da ima float
+
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    //a ovo zapravo napravi krug
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    //kad se stavlja float najbolje je da se pozicija menja preko ovoga a ne margina
+    transform: translateX(-30px) skewX(12deg);
+
+    position: relative;
+  }
+  &__image {
+    height: 100%;
+    backface-visibility: hidden;
+    transform: translateX(-40px);
+    transform: scale(1.2);
+  }
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 17px;
+    text-align: center;
+    opacity: 1;
+    backface-visibility: hidden;
+  }
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+  }
+  &__text {
+    transform: skewX(12deg);
+  }
+  &:hover &__image {
+    transform: scale(1);
+    transition: all 0.5s;
+    filter: blur(3px) brightness(80%);
+  }
+}

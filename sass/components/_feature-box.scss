@@ -1,0 +1,14 @@
+.feature-box {
+  background-color: rgba($color-white, 80%);
+  padding: 15px;
+
+  &--icon {
+    font-size: 50px;
+    color: $color-primary;
+    font-weight: 400;
+  }
+}
+.feature-box:hover {
+  transform: translateY(-10px);
+  transition: all 0.3s;
+}
